@@ -1,0 +1,30 @@
+server:
+  port: 9090
+spring:
+  cloud:
+    stream:
+      bindings:
+        user-output:
+          destination: stream.users
+          producer:
+            use-native-encoding: true
+      kafka:
+        binder:
+          configuration:
+            value:
+              deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+              serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            key:
+              deserializer: org.apache.kafka.common.serialization.StringDeserializer
+              serializer: org.apache.kafka.common.serialization.StringSerializer
+  kafka:
+    properties:
+      schema:
+        registry:
+          url: http://localhost:8081
+      specific:
+        avro:
+          reader: true
+
+
+
