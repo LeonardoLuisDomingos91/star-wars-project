@@ -17,7 +17,7 @@ __consumer_offsets 46 0
 docker-connect-offsets 20 0
 docker-connect-offsets 17 0
 docker-connect-offsets 0 0
-__consumer_offsets 25 6
+__consumer_offsets 25 10
 __consumer_offsets 35 0
 __consumer_offsets 41 0
 __consumer_offsets 33 0
@@ -36,7 +36,7 @@ __consumer_offsets 3 0
 __consumer_offsets 18 0
 docker-connect-offsets 21 0
 docker-connect-configs 0 0
-__consumer_offsets 37 20
+__consumer_offsets 37 32
 docker-connect-offsets 23 0
 __consumer_offsets 15 0
 __consumer_offsets 24 0
@@ -75,7 +75,7 @@ __consumer_offsets 45 0
 __consumer_offsets 1 0
 __consumer_offsets 5 0
 __consumer_offsets 26 0
-__consumer_offsets 29 7
+__consumer_offsets 29 9
 __consumer_offsets 34 0
 __consumer_offsets 10 0
 docker-connect-offsets 11 0
