@@ -3,7 +3,6 @@ package br.com.invillia.lyon.userapi.producer;
 import br.com.invillia.lyon.userapi.channel.UserChannel;
 import br.com.invillia.lyon.userapi.events.User;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
@@ -12,16 +11,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserProducer {
 
-    @Autowired
-    private UserChannel userChannel;
+    private final UserChannel userChannel;
 
-    public void sendUser(String id) {
+    public UserProducer(final UserChannel userChannel) {
+        this.userChannel = userChannel;
+    }
 
-        User user = User.newBuilder()
+    public void sendUser(final String id) {
+        final User user = User.newBuilder()
                 .setId(id)
                 .build();
 
-        MessageChannel messageChannel = userChannel.outboundUsers();
+        final MessageChannel messageChannel = userChannel.outboundUsers();
         messageChannel.send(MessageBuilder
                 .withPayload(user)
                 .build());

@@ -1,6 +1,7 @@
 HELP.md
 .gradle
 build/
+*.hprof
 full-stack/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/

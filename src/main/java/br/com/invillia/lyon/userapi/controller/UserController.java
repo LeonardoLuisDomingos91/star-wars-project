@@ -1,8 +1,6 @@
 package br.com.invillia.lyon.userapi.controller;
 
 import br.com.invillia.lyon.userapi.producer.UserProducer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,12 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    private UserProducer userProducer;
+    private final UserProducer userProducer;
+
+    public UserController(UserProducer userProducer) {
+        this.userProducer = userProducer;
+    }
 
     @PostMapping("/{id}")
-    public HttpStatus create(@PathVariable("id") String id) {
+    public void receiveId(@PathVariable("id") String id) {
         userProducer.sendUser(id);
-        return HttpStatus.OK;
     }
 }
