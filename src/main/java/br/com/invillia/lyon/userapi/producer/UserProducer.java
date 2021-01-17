@@ -27,6 +27,6 @@ public class UserProducer {
                 .withPayload(user)
                 .build());
 
-        log.info("id: " + user.getId() + " sent");
+        log.info("M=sendUser, I=evento postado no tópico, id={}", user.getId());
     }
 }
